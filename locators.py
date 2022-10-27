@@ -33,5 +33,5 @@ driver.find_element(By.XPATH, "//input[@type='submit']").click()
 msg = driver.find_element(By.CLASS_NAME, "alert-success").text # text property only retrieves the text associated with class
 print(msg)
 
-#check if we see "success in message"
+#check if we see "success" in message
 assert "Success" in msg
