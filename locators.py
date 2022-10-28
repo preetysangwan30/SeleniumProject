@@ -24,8 +24,9 @@ driver.find_element(By.ID, "exampleCheck1").click()
 
 #When ID, Name etc is unavailable and you have to create your own attribute
 #Custom Xpath Syntax://tagname[@attribute='value'] --> //input[@type='submit']
-# CSSSelector: tagname[attribute='value'] --> input[type='submit']
+# CSSSelector: tagname[attribute='value'] --> input[type='submit'] OR #ID's value OR .classname
 driver.find_element(By.CSS_SELECTOR, "input[name='name']").send_keys("Divya Pateriya")
+driver.find_element(By.CSS_SELECTOR, "#inlineRadio1").click()
 driver.find_element(By.XPATH, "//input[@type='submit']").click()
 
 #To make sure certain message show up on screen after a click ie submit in this case
@@ -35,3 +36,15 @@ print(msg)
 
 #check if we see "success" in message
 assert "Success" in msg
+
+# ============== NOTE =================
+# There is a chrome plugin to validate the CSSSelector and Xpath if its unique or not
+# plugin = Selectorshub: Just add to chrome, when you inspect on it, write your own Xpath/CSSSelector
+# and see if its unique for the attribute you want
+
+# If you write an Xpath and there are multiple items matching, then enclose the Xpath in ()[n]
+# Say if 3 elements identified with type = submit, but you mean the third place (input[type='submit'])[3]
+driver.find_element(By.XPATH, "(//input[@type='text'])[3]").send_keys("Hello there")
+
+#In order to ignore the 2 way binding happening in the text box
+driver.find_element(By.XPATH, "(//input[@type='text'])[3]").clear()
