@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 #Give path to the browser driver
 service_obj = Service("C:/Users/divya/Downloads/chromedriver_win32/chromedriver.exe")
@@ -27,6 +28,14 @@ driver.find_element(By.ID, "exampleCheck1").click()
 # CSSSelector: tagname[attribute='value'] --> input[type='submit'] OR #ID's value OR .classname
 driver.find_element(By.CSS_SELECTOR, "input[name='name']").send_keys("Divya Pateriya")
 driver.find_element(By.CSS_SELECTOR, "#inlineRadio1").click()
+
+#==========Static dropdowns============
+
+dropdown = Select(driver.find_element(By.ID, "exampleFormControlSelect1"))
+#dropdown.select_by_index(1) # indices start from 0
+dropdown.select_by_visible_text("Female")
+# dropdown.select_by_value("stud") # if there is a value attribute
+
 driver.find_element(By.XPATH, "//input[@type='submit']").click()
 
 #To make sure certain message show up on screen after a click ie submit in this case
