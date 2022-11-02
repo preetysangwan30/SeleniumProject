@@ -30,6 +30,14 @@ for country in countries:
         country.click()
         break
 
+# check if the clicked element in "India"
+# driver.find_element(By.ID,"autosuggest").text() # This will not work, because it works for the data
+# already present on the webpage but not for the one entered dynamically
+# Use the get_attribute() function to get the value of entered text
+country = driver.find_element(By.ID, "autosuggest").get_attribute("value")
+print(country)
+assert country == "India"
+
 
 
 
