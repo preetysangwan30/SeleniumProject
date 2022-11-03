@@ -36,12 +36,16 @@ for checkbox in checkboxes:
 #=================== RADIO BUTTONS ===================
 
 radio_buttons = driver.find_elements(By.CLASS_NAME, "radioButton")
+radio_buttons[2].click()
+# for button in radio_buttons:
+#     if button.get_attribute("value") == "radio1":
+#         button.click()
+#         assert button.is_selected()
+#         break
 
-for button in radio_buttons:
-    if button.get_attribute("value") == "radio1":
-        button.click()
-        assert button.is_selected()
-        break
+# ================== DISPLAY BOX==============
 
-
+assert driver.find_element(By.ID, "displayed-text").is_displayed()
+driver.find_element(By.ID, "hide-textbox").click()
+assert not driver.find_element(By.ID, "displayed-text").is_displayed()
 
