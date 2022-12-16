@@ -1,3 +1,10 @@
 Here are some crash CSSSelector/Xpath for elements
 
-a. #ID --- CSSSelector
+a. #ID ---> CSS
+b. .class-name ---> CSS
+c. //div[@class='products']/div ----> XPATH #for parent div class which has child item also
+											and we will loop through children
+d. 
+
+
+
