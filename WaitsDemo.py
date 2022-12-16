@@ -28,4 +28,9 @@ assert count > 0
 for product in products:
     product.find_element(By.XPATH, "div/button").click()
 
+driver.find_element(By.CSS_SELECTOR, ".cart-icon").click()
+driver.find_element(By.XPATH, "//button[text()='PROCEED TO CHECKOUT']").click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//input[@type='text']").send_keys("rahulshettyacademy")
+driver.find_element(By.CSS_SELECTOR, ".promoBtn").click()
 

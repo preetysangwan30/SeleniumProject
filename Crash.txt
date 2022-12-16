@@ -4,7 +4,7 @@ a. #ID ---> CSS
 b. .class-name ---> CSS
 c. //div[@class='products']/div ----> XPATH #for parent div class which has child item also
 											and we will loop through children
-d. 
+d. //button[text()='PROCEED TO CHECKOUT']  # Creating XPATH based upon the visible text on the screen
 
 
 
