@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 #Give path to the browser driver
@@ -14,7 +16,7 @@ chrome_options.add_experimental_option("detach", True)
 #DriverObj is intermediation bw our system and chrome
 driver = webdriver.Chrome(service=service_obj)
 
-driver.implicitly_wait(5)
+# driver.implicitly_wait(5)
 # Global time out, throughout every code line if the content loads
 # selenium will wait max 5 secs for it to appear. If it appears before 5 secs
 # code will execute and save rest wait time
@@ -32,7 +34,9 @@ count = len(products)
 assert count > 0
 
 for product in products:
-    product.find_element(By.XPATH, "div/button").click()
+    element = WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, "div/button")))
+    element.click()
+    # product.find_element(By.XPATH, "div/button").click()
 
 driver.find_element(By.CSS_SELECTOR, ".cart-icon").click()
 driver.find_element(By.XPATH, "//button[text()='PROCEED TO CHECKOUT']").click()
