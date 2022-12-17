@@ -13,9 +13,15 @@ chrome_options.add_experimental_option("detach", True)
 
 #DriverObj is intermediation bw our system and chrome
 driver = webdriver.Chrome(service=service_obj)
+
+driver.implicitly_wait(5)
+# Global time out, throughout every code line if the content loads
+# selenium will wait max 5 secs for it to appear. If it appears before 5 secs
+# code will execute and save rest wait time
+
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
 driver.find_element(By.CSS_SELECTOR, ".search-keyword").send_keys("ber")
-time.sleep(2)
+# time.sleep(2)
 
 # now we will write "ber" in the search bar and it will show matching products
 # here we will be writing the Xpath for the parent class and loop through
@@ -30,7 +36,7 @@ for product in products:
 
 driver.find_element(By.CSS_SELECTOR, ".cart-icon").click()
 driver.find_element(By.XPATH, "//button[text()='PROCEED TO CHECKOUT']").click()
-time.sleep(3)
+# time.sleep(3)
 driver.find_element(By.XPATH, "//input[@type='text']").send_keys("rahulshettyacademy")
 driver.find_element(By.CSS_SELECTOR, ".promoBtn").click()
 
