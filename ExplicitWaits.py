@@ -49,3 +49,18 @@ wait.until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR,".
 # but applicable only for components which takes time to load like promo code applied and its loading time to search for its validity
 promo_message = driver.find_element(By.CSS_SELECTOR, ".promoInfo").text
 assert promo_message == "Code applied ..!"
+
+# checking if the sum of all products is the total amount to be paid
+prices = driver.find_elements(By.XPATH, "//div[@class='products']/table/tbody/tr/td[5]")
+# prices = driver.find_elements(By.CSS_SELECTOR, "tr td:nth-child(5) p")
+sum = 0
+for price in prices:
+    print(price.text)
+    sum = sum + int(price.text)
+
+print(sum)
+total_price = driver.find_element(By.CSS_SELECTOR, ".totAmt").text
+assert int(sum) == int(total_price)
+disc_price = driver.find_element(By.CSS_SELECTOR, ".discountAmt").text
+assert disc_price < total_price
+driver.find_element(By.XPATH, "//button[text()='Place Order']").click()
