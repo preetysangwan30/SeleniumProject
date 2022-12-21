@@ -36,12 +36,10 @@ count = len(products)
 assert count > 0
 list = []
 for product in products:
-    #for name in product: # fetching the name of items showing up
-    item = product.find_element(By.XPATH, "h4").text
+    item = product.find_element(By.XPATH, "h4").text # fetching the name of items showing up
     list.append(item)
     product.find_element(By.XPATH, "div/button").click() # clicking on add to cart button
     
-print(list)
 expected_products = ["Cucumber - 1 Kg", "Raspberry - 1/4 Kg", "Strawberry - 1/4 Kg"]
 
 assert list == expected_products
