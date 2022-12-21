@@ -34,9 +34,17 @@ time.sleep(3) # Need to include sleep() even though we have an implicit wait is 
 products = driver.find_elements(By.XPATH, "//div[@class='products']/div")
 count = len(products)
 assert count > 0
-
+list = []
 for product in products:
-    product.find_element(By.XPATH, "div/button").click()
+    #for name in product: # fetching the name of items showing up
+    item = product.find_element(By.XPATH, "h4").text
+    list.append(item)
+    product.find_element(By.XPATH, "div/button").click() # clicking on add to cart button
+    
+print(list)
+expected_products = ["Cucumber - 1 Kg", "Raspberry - 1/4 Kg", "Strawberry - 1/4 Kg"]
+
+assert list == expected_products
 
 driver.find_element(By.CSS_SELECTOR, ".cart-icon").click()
 driver.find_element(By.XPATH, "//button[text()='PROCEED TO CHECKOUT']").click()
