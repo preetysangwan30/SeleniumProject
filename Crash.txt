@@ -6,5 +6,5 @@ c. //div[@class='products']/div ----> XPATH #for parent div class which has chil
 											and we will loop through children
 d. //button[text()='PROCEED TO CHECKOUT']  # Creating XPATH based upon the visible text on the screen
 
-
+e.CCS-Selector: form div:nth-child(2) input # add description later
 
