@@ -4,9 +4,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.ui import WebDriverWait
-import time
 
 #Give path to the browser driver
 service_obj = Service("C:/Users/divya/Downloads/chromedriver_win32/chromedriver.exe")
