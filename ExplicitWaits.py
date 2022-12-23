@@ -1,3 +1,5 @@
+# This is end to end GreenCart application
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -70,3 +72,19 @@ assert int(sum) == int(total_price)
 disc_price = driver.find_element(By.CSS_SELECTOR, ".discountAmt").text
 assert disc_price < total_price
 driver.find_element(By.XPATH, "//button[text()='Place Order']").click()
+
+# Let's enter the country name
+driver.find_element(By.XPATH, "//div/select").click()
+
+countries = driver.find_elements(By.XPATH, "//select/option")
+for country in countries:
+    if country.get_attribute("value") == "India":
+        country.click()
+        assert country.is_selected() # checking if the country is selected
+driver.find_element(By.CLASS_NAME, "chkAgree").click() # accepting the TnC
+assert driver.find_element(By.CLASS_NAME, "chkAgree").is_selected()
+
+driver.find_element(By.XPATH, "//button").click()
+message = driver.find_element(By.XPATH, "//div[@class='products']/div/span").text
+print(message)
+assert "Thank you" in message
