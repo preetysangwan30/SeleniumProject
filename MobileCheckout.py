@@ -51,6 +51,8 @@ countries = driver.find_element(By.LINK_TEXT, "India").click()
 
 driver.find_element(By.XPATH, "//div[@class='checkbox checkbox-primary']/label").click()
 driver.find_element(By.CSS_SELECTOR, "input[class*=success]").click()
+# driver.find_element(By.CSS_SELECTOR, "input[value='submit']").click()
 
 desired_message = "Success"
 assert desired_message in driver.find_element(By.CSS_SELECTOR, "div[class*=alert]").text
+driver.close()
