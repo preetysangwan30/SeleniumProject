@@ -9,3 +9,4 @@ d. //button[text()='PROCEED TO CHECKOUT']  # Creating XPATH based upon the visib
 e. CCS-Selector: form div:nth-child(2) input # add description later
 f. //tagname = XPATH
 g. tagename == CSS
+h. a[class*='primary'] == CSS with no full name of class needed
