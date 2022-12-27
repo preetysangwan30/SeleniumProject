@@ -16,6 +16,9 @@ chrome_options.add_experimental_option("detach", True)
 ChromeOptionsObj = webdriver.ChromeOptions()
 ChromeOptionsObj.add_argument("headless")
 
+# To run browser maximized
+ChromeOptionsObj.add_argument("--start-maximized")
+
 # While getting the SSL browser error and you want to proceed anyway for an non-secured connection
 ChromeOptionsObj.add_argument("--ignore-certificate-errors")
 
