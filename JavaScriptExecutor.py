@@ -28,3 +28,23 @@ driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 # As selenium itself does not have a method for scrolling down, we'll execute a JavaScript
 driver.execute_script("window.scrollBy(0,document.body.scrollHeight);")
 driver.get_screenshot_as_file("scrolled.png")
+
+#=======================================================================#
+#====================== Sorting list on webpage ========================#
+#=======================================================================#
+
+driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers")
+print(driver.title) #Fetching the title of webpage
+
+driver.find_element(By.CSS_SELECTOR, "th[aria-label*=fruit]").click()
+Elements = driver.find_elements(By.XPATH, "//tr/td[1]")
+OrgList = []
+
+for names in Elements:
+    name = names.text
+    OrgList.append(name)
+
+print(OrgList)
+SortedList = sorted(OrgList)
+print(SortedList)
+assert OrgList == SortedList
