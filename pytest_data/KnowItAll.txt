@@ -4,3 +4,5 @@ This file includes all that needs to be known for py
 1. All tests from terminal are run as >>py.test (In the project folder)
 2. To get more info out of terminal run >>py.test -v (verbose, to get detailed info on the process)
 3. To see the console logs on terminal >>py.test -v -s
+4. To run selected test cases >> py.test <TestCaseName> -v -s
+5. To run methods with regex >>py.test -k <string> -v -s (System will search for all method that contains mentioned string)
