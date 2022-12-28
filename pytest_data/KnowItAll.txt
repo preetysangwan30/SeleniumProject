@@ -1,0 +1,6 @@
+This file includes all that needs to be known for py
+
+=================== ALL ABOUT RUN=============================
+1. All tests from terminal are run as >>py.test (In the project folder)
+2. To get more info out of terminal run >>py.test -v (verbose, to get detailed info on the process)
+3. To see the console logs on terminal >>py.test -v -s
