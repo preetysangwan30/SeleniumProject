@@ -4,5 +4,8 @@ This file includes all that needs to be known for py
 1. All tests from terminal are run as >>py.test (In the project folder)
 2. To get more info out of terminal run >>py.test -v (verbose, to get detailed info on the process)
 3. To see the console logs on terminal >>py.test -v -s
-4. To run selected test cases >> py.test <TestCaseName> -v -s
+4. To run selected test cases >>py.test <TestCaseName> -v -s
 5. To run methods with regex >>py.test -k <string> -v -s (System will search for all method that contains mentioned string)
+6. Test cases can be marked (tag) with certain name and run as >>py.test -m <Mark> -v -s (see test_2.py)
+7. Test cases with "skip" mark are skipped when executing all in one go
+8. Mark "xfail" to run the TC but not display PASS/FAIL in O/P
