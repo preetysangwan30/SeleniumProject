@@ -3,7 +3,8 @@
 # Other instances of the fixtures can be removed from all TCs and can only be called as the argument
 import pytest
 
-@pytest.fixture
+@pytest.fixture(scope="class") # Adding the scope to the class level, hence it is independent of the nos of methods in the class
+
 def scope(): # Need not to have test_ coz its not a TC
     print("I will be executed first !!!") # will be executed before line 11
     yield # Code under this is invoked after whole execution of method which uses this fixture
