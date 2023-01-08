@@ -20,3 +20,10 @@ class Test_example: # Class name must start with Test not test
 
     def test_fixtureDemo3(self):
         print("I'll be executing in demo3 !!!") 
+
+# Testing fixture that has returning values
+
+class TestDataLoad: # Must start with Test
+    def test_checkdataLoad(self, dataLoad): # Arg as the fixture name
+        print(dataLoad)
+        print(dataLoad[0])
